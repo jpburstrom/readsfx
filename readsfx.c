@@ -10,7 +10,7 @@
  * WARRANTIES, see the file, "LICENSE.txt," in this distribution.  */
 
 
-//  Copyright (c) 2014 Johannes Burström. All rights reserved.
+//  Copyright (c) 2014 Johannes Burström.
 //
 
 #include "readsfx.h"

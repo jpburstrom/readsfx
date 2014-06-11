@@ -3,7 +3,7 @@
 //  readsfx~
 //
 //  Created by Johannes Burström on 2014-06-05.
-//  Copyright (c) 2014 Johannes Burström. All rights reserved.
+//  Copyright (c) 2014 Johannes Burström. 
 //
 
 //#define SFXDEBUG
