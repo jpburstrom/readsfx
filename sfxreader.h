@@ -15,6 +15,7 @@
 #include <iostream>
 #include "AudioToolbox/AudioToolbox.h"
 #include "m_pd.h"
+#include "readsfx.h"
 //#include "CAAudioBufferList.h"
 
 

@@ -52,16 +52,18 @@ int SfxReader::open(char* dirname, char* filename, int *p_bytespersamp, int *p_b
 {
     OSStatus err;
     UInt32 size = 0;
+    CFURLRef infileURL;
     char path[MAXPDSTRING];
-    
-    fprintf(stderr, "%s/%s", dirname, filename);
     
     close();
     
+    int fd = readsfx_get_path(dirname, filename, path, MAXPDSTRING);
+    if (fd < 0) {
+        goto fail;
+    }
     
-    //Merge path
-    snprintf(path, MAXPDSTRING, "%s/%s", dirname, filename);
-    CFURLRef infileURL = CFURLCreateFromFileSystemRepresentation(NULL, (UInt8*)path, strlen(path), false);
+    
+    infileURL = CFURLCreateFromFileSystemRepresentation(NULL, (UInt8*)path, strlen(path), false);
     
     //We need inputFormat for channel count
     try {

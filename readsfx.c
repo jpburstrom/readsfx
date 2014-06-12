@@ -23,6 +23,45 @@ int garray_ambigendian(void)
     return (c==0);
 }
 
+static void slashit(char *path)
+{
+    if (*path && path[strlen(path)-1] != '/')
+        strcat(path, "/");
+}
+
+/*
+ Take a dirname/filename pair and put the absolute path in filename char
+ This doesn't work with declared paths, which seems to need canvas_open
+ */
+int readsfx_get_path(const char *dirname, char *filename, char *path, unsigned int size)
+{
+    int fd;
+    char tmp[size];
+    char *bufptr;
+    fd = open_via_path(dirname, filename, "", tmp, &bufptr, MAXPDSTRING, 1);
+    if (!*tmp) {
+        
+        
+        if (sys_isabsolutepath(filename)) {
+            strcpy(path, filename);
+        } else if (sys_isabsolutepath(dirname)) {
+            strcpy(path, dirname);
+            slashit(path);
+            strcat(path, filename);
+        }
+    } else {
+        strcpy(path, tmp);
+        slashit(path);
+        strcat(path, bufptr);
+    }
+
+    if (fd >= 0)
+        close(fd);
+    
+    return fd;
+    
+}
+
 static void soundfile_xferin_sample(int sfchannels, int nvecs, t_sample **vecs,
                                     long itemsread, unsigned char *buf, int nitems, int bytespersamp,
                                     int bigendian, int spread)
@@ -140,7 +179,7 @@ typedef struct _readsfx
 
 /************** the child thread which performs file I/O ***********/
 
-#if 1
+#if 0
 static void pute(char *s)   /* debug routine */
 {
     write(2, s, strlen(s));
@@ -241,7 +280,7 @@ noticed. */
 #ifdef DEBUG_SOUNDFILE
             pute("Pre-open\n");
 #endif
-
+            
             fd = sfxreader_open(reader_obj, dirname, filename, &bytespersample, &bigendian,
                                 &sfchannels, &bytelimit, onsetframes);
             

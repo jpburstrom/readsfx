@@ -9,12 +9,7 @@
 #X obj 80 260 pack s 0;
 #X floatatom 124 241 10 0 0 1 Offset_in_samples - -, f 10;
 #X obj 81 117 openpanel;
-#X msg 81 94 symbol ~/Music;
-#X msg 81 139 set \$1;
-#X msg 81 161 symbol /Users/johannes/Music/iTunes/iTunes Media/Music/Adel
-Shams el-Din/Forty Rhythms From The Middle East/04 Echos Soufis.mp3
-;
-#X msg 135 198 symbol /Users/johannes/Music/iTunes/iTunes Media/Music/Autechre/Draft
+#X msg 367 218 symbol /Users/johannes/Music/iTunes/iTunes Media/Music/Autechre/Draft
 7.30/01 Xylin Room.mp3;
 #X msg 80 334 open \$1 \, 1;
 #X msg 113 377 1;
@@ -27,22 +22,27 @@ Shams el-Din/Forty Rhythms From The Middle East/04 Echos Soufis.mp3
 #X obj 585 103 loadbang;
 #X msg 586 131 \; pd dsp 1;
 #X obj 267 296 symbol;
+#X obj 104 291 print;
+#X obj 437 317 makefilename;
+#X obj 587 367 readsf~;
+#X msg 38 156 open \$1;
+#X msg 81 94 symbol ~/kod/readsfx;
 #X connect 1 0 0 0;
 #X connect 1 1 0 1;
 #X connect 1 2 2 0;
 #X connect 2 0 3 0;
-#X connect 5 0 12 0;
+#X connect 5 0 9 0;
+#X connect 5 0 20 0;
 #X connect 6 0 5 1;
-#X connect 7 0 9 0;
-#X connect 8 0 7 0;
-#X connect 9 0 10 0;
-#X connect 10 0 5 0;
-#X connect 11 0 5 0;
+#X connect 7 0 23 0;
+#X connect 8 0 5 0;
+#X connect 9 0 1 0;
+#X connect 10 0 1 0;
+#X connect 11 0 1 0;
 #X connect 12 0 1 0;
-#X connect 13 0 1 0;
-#X connect 14 0 1 0;
 #X connect 15 0 1 0;
-#X connect 18 0 1 0;
-#X connect 19 0 22 0;
-#X connect 20 0 21 0;
-#X connect 22 0 12 0;
+#X connect 16 0 19 0;
+#X connect 17 0 18 0;
+#X connect 19 0 9 0;
+#X connect 23 0 1 0;
+#X connect 24 0 7 0;

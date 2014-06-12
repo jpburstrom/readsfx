@@ -17,7 +17,7 @@
 #include "m_pd.h"
 #include "sfxReader.h"
 
-#define SFXDEBUG
+//#define SFXDEBUG
 
 #ifndef MAXSFCHANS //d_soundfile.c
 #define MAXSFCHANS 64
@@ -46,7 +46,15 @@
 
 #define SCALE (1./(1024. * 1024. * 1024. * 2.))
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+int readsfx_get_path(const char *dirname, char *filename, char *path, unsigned int size);
+
+#ifdef __cplusplus
+}
+#endif
 
 
-
-#endif //readsfx_readsfx_h
+#endif//readsfx_readsfx_h
