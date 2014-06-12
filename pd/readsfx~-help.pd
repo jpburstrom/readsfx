@@ -1,0 +1,39 @@
+#N canvas 430 113 1102 671 10;
+#X declare -path ../Build;
+#X obj 81 580 dac~;
+#X obj 79 436 readsfx~ 2;
+#X obj 140 472 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 140 492;
+#X obj 69 37 declare -path ../Build;
+#X obj 80 260 pack s 0;
+#X floatatom 124 241 10 0 0 1 Offset_in_samples - -, f 10;
+#X obj 81 117 openpanel;
+#X msg 81 94 symbol ~/Music;
+#X msg 81 139 set \$1;
+#X msg 81 161 symbol /Users/johannes/Music/iTunes/iTunes Media/Music/Adel
+Shams el-Din/Forty Rhythms From The Middle East/04 Echos Soufis.mp3
+;
+#X msg 135 198 symbol /Users/johannes/Music/iTunes/iTunes Media/Music/Autechre/Draft
+7.30/01 Xylin Room.mp3;
+#X msg 80 334 open \$1 \, 1;
+#X msg 113 377 1;
+#X msg 165 345 open 04.mp3;
+#X msg 168 371 open asdasd;
+#X text 251 345 Works;
+#X text 252 371 Shouldn't crash;
+#X connect 1 0 0 0;
+#X connect 1 1 0 1;
+#X connect 1 2 2 0;
+#X connect 2 0 3 0;
+#X connect 5 0 12 0;
+#X connect 6 0 5 1;
+#X connect 7 0 9 0;
+#X connect 8 0 7 0;
+#X connect 9 0 10 0;
+#X connect 10 0 5 0;
+#X connect 11 0 5 0;
+#X connect 12 0 1 0;
+#X connect 13 0 1 0;
+#X connect 14 0 1 0;
+#X connect 15 0 1 0;
