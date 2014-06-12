@@ -14,12 +14,10 @@
 #include <pthread.h>
 #include <errno.h>
 #include <string.h>
-
-
+#include "m_pd.h"
+#include "sfxReader.h"
 
 #define SFXDEBUG
-
-#include "m_pd.h"
 
 #ifndef MAXSFCHANS //d_soundfile.c
 #define MAXSFCHANS 64
@@ -45,7 +43,6 @@
 
 #endif //define MAXFSCHANS
 
-#include "sfxReader.h"
 
 #define SCALE (1./(1024. * 1024. * 1024. * 2.))
 

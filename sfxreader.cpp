@@ -37,6 +37,7 @@ static void postError(std::string pre, OSStatus error)
 using namespace std;
 
 
+
 SfxReader::~SfxReader()
 {
     close();
@@ -122,7 +123,9 @@ void    SfxReader::GetFormatFromInputFile (CFURLRef infileURL, AudioStreamBasicD
 {
     AudioFileID inputFile;
     UInt32 size;
-    OSStatus err = AudioFileOpenURL(infileURL, kAudioFileReadPermission, 0, &inputFile);
+    OSStatus err;
+    
+    err = AudioFileOpenURL(infileURL, kAudioFileReadPermission, 0, &inputFile);
     
 //    ERR("GetFormat", err);
     

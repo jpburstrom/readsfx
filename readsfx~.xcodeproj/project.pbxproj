@@ -12,6 +12,7 @@
 		8F1E04A819408644009E9481 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1E04A719408644009E9481 /* AudioToolbox.framework */; };
 		8F81303B1947307200F9F81E /* sfxReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8F8130391947307200F9F81E /* sfxReader.cpp */; };
 		8F81303C1947307200F9F81E /* sfxReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F81303A1947307200F9F81E /* sfxReader.h */; };
+		8FAD083E19499E5200325FF0 /* readsfx.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F8130351946FD8100F9F81E /* readsfx.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F1E04A1194066A6009E9481 /* m_pd.h in Headers */,
+				8FAD083E19499E5200325FF0 /* readsfx.h in Headers */,
 				8F81303C1947307200F9F81E /* sfxReader.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -204,6 +206,9 @@
 				CONFIGURATION_BUILD_DIR = build;
 				EXECUTABLE_EXTENSION = pd_darwin;
 				EXECUTABLE_PREFIX = "";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-undefined",
 					dynamic_lookup,
@@ -218,7 +223,9 @@
 				CONFIGURATION_BUILD_DIR = build;
 				EXECUTABLE_EXTENSION = pd_darwin;
 				EXECUTABLE_PREFIX = "";
-				ONLY_ACTIVE_ARCH = YES;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-undefined",
 					dynamic_lookup,

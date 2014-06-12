@@ -47,7 +47,7 @@ public:
     ExtAudioFileRef infile;
     AudioStreamBasicDescription inputFormat, clientFormat;
     
-    SfxReader();
+
     ~SfxReader();
     
     int open(char* dirname, char* filename, int *p_bytespersamp, int *p_bigendian, int *p_nchannels, long *p_bytelimit, long skipframes);
