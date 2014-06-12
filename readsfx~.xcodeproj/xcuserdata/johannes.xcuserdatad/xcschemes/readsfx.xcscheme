@@ -17,7 +17,7 @@
                BlueprintIdentifier = "8F1E049819406639009E9481"
                BuildableName = "readsfx~.pd_darwin"
                BlueprintName = "readsfx~"
-               ReferencedContainer = "container:readsfx.xcodeproj">
+               ReferencedContainer = "container:readsfx~.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

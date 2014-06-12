@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>61A1A66C-04B3-42DB-A93D-E896D24FA27C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>readsfx</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C32A3A0C-BD18-4D8A-A0E2-85D3DA8FFDCC</key>
+		<string>ssh://github.com/jpburstrom/readsfx-.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>readsfx.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C32A3A0C-BD18-4D8A-A0E2-85D3DA8FFDCC</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/jpburstrom/readsfx-.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C32A3A0C-BD18-4D8A-A0E2-85D3DA8FFDCC</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C32A3A0C-BD18-4D8A-A0E2-85D3DA8FFDCC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>readsfx-</string>
+		</dict>
+	</array>
+</dict>
+</plist>

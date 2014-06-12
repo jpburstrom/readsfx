@@ -98,7 +98,7 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "___FULLUSERNAME___";
 			};
-			buildConfigurationList = 8F1E049419406639009E9481 /* Build configuration list for PBXProject "readsfx" */;
+			buildConfigurationList = 8F1E049419406639009E9481 /* Build configuration list for PBXProject "readsfx~" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -208,7 +208,7 @@
 					"-undefined",
 					dynamic_lookup,
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "readsfx~";
 			};
 			name = Debug;
 		};
@@ -218,18 +218,19 @@
 				CONFIGURATION_BUILD_DIR = build;
 				EXECUTABLE_EXTENSION = pd_darwin;
 				EXECUTABLE_PREFIX = "";
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-undefined",
 					dynamic_lookup,
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "readsfx~";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8F1E049419406639009E9481 /* Build configuration list for PBXProject "readsfx" */ = {
+		8F1E049419406639009E9481 /* Build configuration list for PBXProject "readsfx~" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8F1E049B1940663A009E9481 /* Debug */,
