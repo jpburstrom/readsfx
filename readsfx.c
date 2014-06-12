@@ -140,7 +140,7 @@ typedef struct _readsfx
 
 /************** the child thread which performs file I/O ***********/
 
-#if 0
+#if 1
 static void pute(char *s)   /* debug routine */
 {
     write(2, s, strlen(s));
@@ -237,6 +237,10 @@ noticed. */
             }
             /* open the soundfile with the mutex unlocked */
             pthread_mutex_unlock(&x->x_mutex);
+            
+#ifdef DEBUG_SOUNDFILE
+            pute("Pre-open\n");
+#endif
 
             fd = sfxreader_open(reader_obj, dirname, filename, &bytespersample, &bigendian,
                                 &sfchannels, &bytelimit, onsetframes);

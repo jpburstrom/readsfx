@@ -22,6 +22,11 @@ Shams el-Din/Forty Rhythms From The Middle East/04 Echos Soufis.mp3
 #X msg 168 371 open asdasd;
 #X text 251 345 Works;
 #X text 252 371 Shouldn't crash;
+#X msg 181 398 readsfx~-help.pd;
+#X obj 267 272 r open;
+#X obj 585 103 loadbang;
+#X msg 586 131 \; pd dsp 1;
+#X obj 267 296 symbol;
 #X connect 1 0 0 0;
 #X connect 1 1 0 1;
 #X connect 1 2 2 0;
@@ -37,3 +42,7 @@ Shams el-Din/Forty Rhythms From The Middle East/04 Echos Soufis.mp3
 #X connect 13 0 1 0;
 #X connect 14 0 1 0;
 #X connect 15 0 1 0;
+#X connect 18 0 1 0;
+#X connect 19 0 22 0;
+#X connect 20 0 21 0;
+#X connect 22 0 12 0;

@@ -54,6 +54,8 @@ int SfxReader::open(char* dirname, char* filename, int *p_bytespersamp, int *p_b
     UInt32 size = 0;
     char path[MAXPDSTRING];
     
+    fprintf(stderr, "%s/%s", dirname, filename);
+    
     close();
     
     
@@ -62,8 +64,12 @@ int SfxReader::open(char* dirname, char* filename, int *p_bytespersamp, int *p_b
     CFURLRef infileURL = CFURLCreateFromFileSystemRepresentation(NULL, (UInt8*)path, strlen(path), false);
     
     //We need inputFormat for channel count
-    GetFormatFromInputFile(infileURL, inputFormat);
-    
+    try {
+        GetFormatFromInputFile(infileURL, inputFormat);
+    } catch (...) {
+        fprintf(stderr, "Catching");
+        goto fail;
+    }
     err = ExtAudioFileOpenURL (infileURL, &infile);
     
     if (err) goto fail;
@@ -89,6 +95,7 @@ int SfxReader::open(char* dirname, char* filename, int *p_bytespersamp, int *p_b
     return 0; //FIXME
 
 fail:
+    post("error!!!");
     return -1;
 
 }
