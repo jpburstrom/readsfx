@@ -1,13 +1,13 @@
 //
-//  readsfx.h
-//  readsfx
+//  xcommon.h
+//  readsfx~
 //
-//  Created by Johannes Burström on 2014-06-10.
+//  Created by Johannes Burström on 2014-06-13.
 //  Copyright (c) 2014 Johannes Burström. All rights reserved.
 //
 
-#ifndef readsfx_readsfx_h
-#define readsfx_readsfx_h
+#ifndef readsfx__xcommon_h
+#define readsfx__xcommon_h
 
 #include <stdio.h>
 #include <unistd.h>
@@ -49,12 +49,11 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-int readsfx_get_path(const char *dirname, char *filename, char *path, unsigned int size);
-
+    
+    int readsfx_get_path(const char *dirname, char *filename, char *path, unsigned int size);
+    
 #ifdef __cplusplus
 }
 #endif
 
-
-#endif//readsfx_readsfx_h
+#endif

@@ -12,7 +12,13 @@
 		8F1E04A819408644009E9481 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1E04A719408644009E9481 /* AudioToolbox.framework */; };
 		8F81303B1947307200F9F81E /* sfxReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8F8130391947307200F9F81E /* sfxReader.cpp */; };
 		8F81303C1947307200F9F81E /* sfxReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F81303A1947307200F9F81E /* sfxReader.h */; };
-		8FAD083E19499E5200325FF0 /* readsfx.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F8130351946FD8100F9F81E /* readsfx.h */; };
+		8FDB0ECE194ADAC80066BC85 /* sfxReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8F8130391947307200F9F81E /* sfxReader.cpp */; };
+		8FDB0ED1194ADAC80066BC85 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1E04A719408644009E9481 /* AudioToolbox.framework */; };
+		8FDB0ED3194ADAC80066BC85 /* m_pd.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F1E04A0194066A6009E9481 /* m_pd.h */; };
+		8FDB0ED5194ADAC80066BC85 /* sfxReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F81303A1947307200F9F81E /* sfxReader.h */; };
+		8FDB0EDA194ADAD80066BC85 /* soundfilerx.c in Sources */ = {isa = PBXBuildFile; fileRef = 8FDB0ECA194AD48E0066BC85 /* soundfilerx.c */; };
+		8FDB0EDD194AE19A0066BC85 /* xcommon.c in Sources */ = {isa = PBXBuildFile; fileRef = 8FDB0EDC194AE19A0066BC85 /* xcommon.c */; };
+		8FDB0EDE194AE19A0066BC85 /* xcommon.c in Sources */ = {isa = PBXBuildFile; fileRef = 8FDB0EDC194AE19A0066BC85 /* xcommon.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,9 +26,12 @@
 		8F1E04A0194066A6009E9481 /* m_pd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = m_pd.h; path = "../../src/pd-0.45-5/src/m_pd.h"; sourceTree = "<group>"; };
 		8F1E04A4194066F4009E9481 /* readsfx.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = readsfx.c; sourceTree = "<group>"; };
 		8F1E04A719408644009E9481 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		8F8130351946FD8100F9F81E /* readsfx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = readsfx.h; sourceTree = "<group>"; };
 		8F8130391947307200F9F81E /* sfxReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sfxReader.cpp; sourceTree = "<group>"; };
 		8F81303A1947307200F9F81E /* sfxReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sfxReader.h; sourceTree = "<group>"; };
+		8FDB0ECA194AD48E0066BC85 /* soundfilerx.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = soundfilerx.c; sourceTree = "<group>"; };
+		8FDB0ED9194ADAC80066BC85 /* soundfilerx.pd_darwin */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = soundfilerx.pd_darwin; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FDB0EDB194AE1130066BC85 /* xcommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xcommon.h; sourceTree = "<group>"; };
+		8FDB0EDC194AE19A0066BC85 /* xcommon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = xcommon.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +43,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8FDB0ED0194ADAC80066BC85 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FDB0ED1194ADAC80066BC85 /* AudioToolbox.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -41,7 +58,9 @@
 			isa = PBXGroup;
 			children = (
 				8F1E04A4194066F4009E9481 /* readsfx.c */,
-				8F8130351946FD8100F9F81E /* readsfx.h */,
+				8FDB0EDC194AE19A0066BC85 /* xcommon.c */,
+				8FDB0ECA194AD48E0066BC85 /* soundfilerx.c */,
+				8FDB0EDB194AE1130066BC85 /* xcommon.h */,
 				8F8130391947307200F9F81E /* sfxReader.cpp */,
 				8F81303A1947307200F9F81E /* sfxReader.h */,
 				8F1E04A0194066A6009E9481 /* m_pd.h */,
@@ -54,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				8F1E04991940663A009E9481 /* readsfx~.pd_darwin */,
+				8FDB0ED9194ADAC80066BC85 /* soundfilerx.pd_darwin */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -66,8 +86,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F1E04A1194066A6009E9481 /* m_pd.h in Headers */,
-				8FAD083E19499E5200325FF0 /* readsfx.h in Headers */,
 				8F81303C1947307200F9F81E /* sfxReader.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8FDB0ED2194ADAC80066BC85 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FDB0ED3194ADAC80066BC85 /* m_pd.h in Headers */,
+				8FDB0ED5194ADAC80066BC85 /* sfxReader.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +117,23 @@
 			name = "readsfx~";
 			productName = readsfx;
 			productReference = 8F1E04991940663A009E9481 /* readsfx~.pd_darwin */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+		8FDB0ECC194ADAC80066BC85 /* soundfilerx */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8FDB0ED6194ADAC80066BC85 /* Build configuration list for PBXNativeTarget "soundfilerx" */;
+			buildPhases = (
+				8FDB0ECD194ADAC80066BC85 /* Sources */,
+				8FDB0ED0194ADAC80066BC85 /* Frameworks */,
+				8FDB0ED2194ADAC80066BC85 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = soundfilerx;
+			productName = readsfx;
+			productReference = 8FDB0ED9194ADAC80066BC85 /* soundfilerx.pd_darwin */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
 /* End PBXNativeTarget section */
@@ -113,6 +158,7 @@
 			projectRoot = "";
 			targets = (
 				8F1E049819406639009E9481 /* readsfx~ */,
+				8FDB0ECC194ADAC80066BC85 /* soundfilerx */,
 			);
 		};
 /* End PBXProject section */
@@ -124,6 +170,17 @@
 			files = (
 				8F81303B1947307200F9F81E /* sfxReader.cpp in Sources */,
 				8F1E04A5194066F4009E9481 /* readsfx.c in Sources */,
+				8FDB0EDD194AE19A0066BC85 /* xcommon.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8FDB0ECD194ADAC80066BC85 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FDB0EDA194ADAD80066BC85 /* soundfilerx.c in Sources */,
+				8FDB0ECE194ADAC80066BC85 /* sfxReader.cpp in Sources */,
+				8FDB0EDE194AE19A0066BC85 /* xcommon.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +291,40 @@
 			};
 			name = Release;
 		};
+		8FDB0ED7194ADAC80066BC85 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = build;
+				EXECUTABLE_EXTENSION = pd_darwin;
+				EXECUTABLE_PREFIX = "";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"-undefined",
+					dynamic_lookup,
+				);
+				PRODUCT_NAME = soundfilerx;
+			};
+			name = Debug;
+		};
+		8FDB0ED8194ADAC80066BC85 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = build;
+				EXECUTABLE_EXTENSION = pd_darwin;
+				EXECUTABLE_PREFIX = "";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"-undefined",
+					dynamic_lookup,
+				);
+				PRODUCT_NAME = soundfilerx;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -251,6 +342,15 @@
 			buildConfigurations = (
 				8F1E049E1940663A009E9481 /* Debug */,
 				8F1E049F1940663A009E9481 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8FDB0ED6194ADAC80066BC85 /* Build configuration list for PBXNativeTarget "soundfilerx" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8FDB0ED7194ADAC80066BC85 /* Debug */,
+				8FDB0ED8194ADAC80066BC85 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

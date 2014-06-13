@@ -13,7 +13,7 @@
 //  Copyright (c) 2014 Johannes Burström.
 //
 
-#include "readsfx.h"
+#include "xcommon.h"
 
 /* g_array.c */
 int garray_ambigendian(void)
@@ -23,44 +23,6 @@ int garray_ambigendian(void)
     return (c==0);
 }
 
-static void slashit(char *path)
-{
-    if (*path && path[strlen(path)-1] != '/')
-        strcat(path, "/");
-}
-
-/*
- Take a dirname/filename pair and put the absolute path in filename char
- This doesn't work with declared paths, which seems to need canvas_open
- */
-int readsfx_get_path(const char *dirname, char *filename, char *path, unsigned int size)
-{
-    int fd;
-    char tmp[size];
-    char *bufptr;
-    fd = open_via_path(dirname, filename, "", tmp, &bufptr, MAXPDSTRING, 1);
-    if (!*tmp) {
-        
-        
-        if (sys_isabsolutepath(filename)) {
-            strcpy(path, filename);
-        } else if (sys_isabsolutepath(dirname)) {
-            strcpy(path, dirname);
-            slashit(path);
-            strcat(path, filename);
-        }
-    } else {
-        strcpy(path, tmp);
-        slashit(path);
-        strcat(path, bufptr);
-    }
-
-    if (fd >= 0)
-        close(fd);
-    
-    return fd;
-    
-}
 
 static void soundfile_xferin_sample(int sfchannels, int nvecs, t_sample **vecs,
                                     long itemsread, unsigned char *buf, int nitems, int bytespersamp,
@@ -413,11 +375,8 @@ noticed. */
                 buf = x->x_buf;
                 fifohead = x->x_fifohead;
                 pthread_mutex_unlock(&x->x_mutex);
-                
-                //Här läser från filen.
-                //Denna skulle kanske gå att översätta?
-                //sysrtn = read(fd, buf + fifohead, wantbytes);
-                
+               
+                //Read from our file reader
                 sysrtn = sfxreader_read(reader_obj, buf + fifohead, wantbytes);
                 
                 pthread_mutex_lock(&x->x_mutex);
@@ -786,6 +745,10 @@ void readsfx_tilde_setup(void)
                     A_GIMME, 0);
     class_addmethod(readsfx_tilde_class, (t_method)readsfx_print, gensym("print"), 0);
 }
+
+
+
+
 
 
 

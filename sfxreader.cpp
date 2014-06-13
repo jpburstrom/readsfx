@@ -97,7 +97,6 @@ int SfxReader::open(char* dirname, char* filename, int *p_bytespersamp, int *p_b
     return 0; //FIXME
 
 fail:
-    post("error!!!");
     return -1;
 
 }
@@ -114,6 +113,8 @@ int SfxReader::read(void *buf, int bytes)
     // client format is always linear PCM - so here we determine how many frames of lpcm
     // we can read/write given our buffer size
     UInt32 numFrames = (bytes / clientFormat.mBytesPerFrame);
+
+    post("bytes, numframes: %d,%d", bytes, numFrames);
     
     
     ExtAudioFileRead (infile, &numFrames, &fillBufList);
@@ -124,9 +125,23 @@ int SfxReader::read(void *buf, int bytes)
     }
     
     return numFrames * clientFormat.mBytesPerFrame;
-    
-    return bytes;
+
 }
+
+UInt64 SfxReader::getNumFrames()
+{
+    UInt64 frames = 0;
+    UInt32 size = sizeof(frames);
+    OSStatus err = ExtAudioFileGetProperty(infile, kExtAudioFileProperty_FileLengthFrames, &size, &frames);
+    
+    if (err)
+        return -1;
+    
+    return frames;
+        
+    
+}
+
 
 void    SfxReader::GetFormatFromInputFile (CFURLRef infileURL, AudioStreamBasicDescription & inputFormat)
 {
@@ -206,4 +221,9 @@ int sfxreader_read(void* o, void* buf, int bytes) {
     SfxReader* sp = (SfxReader*) o;
     return sp->read(buf, bytes);
     
+}
+
+long sfxreader_get_nframes(void* o) {
+    SfxReader* sp = (SfxReader*) o;
+    return (long)sp->getNumFrames();
 }

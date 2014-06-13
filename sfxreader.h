@@ -15,7 +15,7 @@
 #include <iostream>
 #include "AudioToolbox/AudioToolbox.h"
 #include "m_pd.h"
-#include "readsfx.h"
+#include "xcommon.h"
 //#include "CAAudioBufferList.h"
 
 
@@ -52,8 +52,9 @@ public:
     ~SfxReader();
     
     int open(char* dirname, char* filename, int *p_bytespersamp, int *p_bigendian, int *p_nchannels, long *p_bytelimit, long skipframes);
-    
     void close();
+    
+    UInt64 getNumFrames();
     
     int read(void* buf, int bytes);
     
@@ -73,6 +74,8 @@ extern "C" {
     void sfxreader_close(void* o);
     
     int sfxreader_read(void* o, void *buf, int bytes);
+    
+    long sfxreader_get_nframes(void* o);
     
 #ifdef __cplusplus
 }

@@ -1,0 +1,24 @@
+#N canvas 431 202 1102 671 10;
+#X declare -path ../Build;
+#X obj 157 161 soundfilerx;
+#X obj 153 20 declare -path ../Build;
+#X obj 527 124 table test;
+#X obj 349 230 tabplay~ test;
+#X obj 349 284 dac~;
+#X obj 327 197 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 154 212 10 0 0 0 - - -, f 10;
+#X obj 405 285 env~;
+#X floatatom 406 325 5 0 0 0 - - -, f 5;
+#X obj 373 42 loadbang;
+#X msg 410 86 \; pd dsp 1;
+#X msg 161 114 read -resize Bats.m4a test;
+#X connect 0 0 6 0;
+#X connect 0 0 5 0;
+#X connect 3 0 4 0;
+#X connect 3 0 7 0;
+#X connect 5 0 3 0;
+#X connect 7 0 8 0;
+#X connect 9 0 10 0;
+#X connect 9 0 11 0;
+#X connect 11 0 0 0;
