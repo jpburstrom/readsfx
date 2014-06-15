@@ -190,7 +190,6 @@ static void soundfilerx_read(t_soundfilerx *x, t_symbol *s,
     if (resize)
     {
         long framesinfile = sfxreader_get_nframes(sfxreader);
-        post("frames in file: %d", framesinfile);
         if (framesinfile > maxsize)
         {
             pd_error(x, "soundfilerx_read: truncated to %ld elements", maxsize);
@@ -224,7 +223,6 @@ static void soundfilerx_read(t_soundfilerx *x, t_symbol *s,
     
     bufframes = SAMPBUFSIZE / (channels * bytespersamp);
     
-    post("bytes per sample: %d", finalsize);
     
     for (itemsread = 0; itemsread < finalsize; )
     {
@@ -238,7 +236,6 @@ static void soundfilerx_read(t_soundfilerx *x, t_symbol *s,
                                (unsigned char *)sampbuf, nitems, bytespersamp, bigendian,
                                sizeof(t_word)/sizeof(t_sample));
         itemsread += nitems;
-        post("bytes per sample: %d", thisread);
     }
     /* zero out remaining elements of vectors */
     
