@@ -36,6 +36,10 @@ static void postError(std::string pre, OSStatus error)
 
 using namespace std;
 
+SfxReader::SfxReader()
+{
+    is_open = false;
+}
 
 
 SfxReader::~SfxReader()
@@ -46,14 +50,14 @@ SfxReader::~SfxReader()
 void SfxReader::close()
 {
     ExtAudioFileDispose(infile);
+    is_open = false;
 }
 
-int SfxReader::open(char* dirname, char* filename, int *p_bytespersamp, int *p_bigendian, int *p_nchannels, long *p_bytelimit, long skipframes)
+int SfxReader::openFile(char *dirname, char *filename)
 {
-    OSStatus err;
-    UInt32 size = 0;
-    CFURLRef infileURL;
     char path[MAXPDSTRING];
+    CFURLRef infileURL;
+    OSStatus err;
     
     close();
     
@@ -69,13 +73,27 @@ int SfxReader::open(char* dirname, char* filename, int *p_bytespersamp, int *p_b
     try {
         GetFormatFromInputFile(infileURL, inputFormat);
     } catch (...) {
-        fprintf(stderr, "Catching");
-        goto fail;
+         goto fail;
     }
     err = ExtAudioFileOpenURL (infileURL, &infile);
-    
     if (err) goto fail;
 
+
+    is_open = true;
+    return 0;
+    
+fail:
+    return -1;
+    
+}
+
+int SfxReader::open(char* dirname, char* filename, int *p_bytespersamp, int *p_bigendian, int *p_nchannels, long *p_bytelimit, long skipframes)
+{
+    UInt32 size = 0;
+    OSStatus err;
+    
+    openFile(dirname, filename);
+    
     //24-bit should be enough for our purposes. 32-bit float crashes.
     FillOutASBDForLPCM(clientFormat, sys_getsr(), inputFormat.mChannelsPerFrame, 24, 24, false, false);
     size = sizeof(clientFormat);
@@ -114,9 +132,6 @@ int SfxReader::read(void *buf, int bytes)
     // we can read/write given our buffer size
     UInt32 numFrames = (bytes / clientFormat.mBytesPerFrame);
 
-    post("bytes, numframes: %d,%d", bytes, numFrames);
-    
-    
     ExtAudioFileRead (infile, &numFrames, &fillBufList);
    
     if (!numFrames) {
@@ -139,6 +154,31 @@ UInt64 SfxReader::getNumFrames()
     
     return frames;
         
+    
+}
+
+void SfxReader::getInfo(char* dirname, char* filename, sfxdata *data)
+{
+    int status;
+    bool do_close = false;
+    
+    if (!is_open) {
+        status = openFile(dirname, filename);
+        do_close = true;
+    } else {
+        status = 0;
+    }
+    
+    if (status >= 0) {
+        data->frames = getNumFrames();
+        data->channels = inputFormat.mChannelsPerFrame;
+        data->samplerate = inputFormat.mSampleRate;
+        data->bits = 8 * inputFormat.mBytesPerFrame / inputFormat.mChannelsPerFrame;
+        data->bigendian = (int)(inputFormat.mFormatFlags & kAudioFormatFlagIsBigEndian);
+    }
+    
+    if (do_close)
+        close();
     
 }
 
@@ -226,4 +266,10 @@ int sfxreader_read(void* o, void* buf, int bytes) {
 long sfxreader_get_nframes(void* o) {
     SfxReader* sp = (SfxReader*) o;
     return (long)sp->getNumFrames();
+}
+
+void sfxreader_info(char* dirname, char* filename, sfxdata *data) {
+    SfxReader sf;
+    sf.getInfo(dirname, filename, data);
+    
 }

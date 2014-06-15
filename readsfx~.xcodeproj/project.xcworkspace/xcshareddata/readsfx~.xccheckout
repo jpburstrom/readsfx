@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>3460C3A5-CB26-489C-9A96-6958AF522530</string>
+	<string>94D6C10D-E05C-4DDB-86F0-372EF6D45B87</string>
 	<key>IDESourceControlProjectName</key>
 	<string>readsfx~</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>2467D056-3282-43A2-903D-7B18CBAEE478</key>
-		<string>ssh://github.com/jpburstrom/readsfx-.git</string>
+		<key>E2CAB691-F329-4CEE-BA88-638943CB1227</key>
+		<string>ssh://github.com/jpburstrom/readsfx.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>readsfx~.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>2467D056-3282-43A2-903D-7B18CBAEE478</key>
+		<key>E2CAB691-F329-4CEE-BA88-638943CB1227</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/jpburstrom/readsfx-.git</string>
+	<string>ssh://github.com/jpburstrom/readsfx.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>2467D056-3282-43A2-903D-7B18CBAEE478</string>
+	<string>E2CAB691-F329-4CEE-BA88-638943CB1227</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>2467D056-3282-43A2-903D-7B18CBAEE478</string>
+			<string>E2CAB691-F329-4CEE-BA88-638943CB1227</string>
 			<key>IDESourceControlWCCName</key>
-			<string>readsfx-</string>
+			<string>readsfx</string>
 		</dict>
 	</array>
 </dict>

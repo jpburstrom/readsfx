@@ -15,6 +15,17 @@
 #include <errno.h>
 #include <string.h>
 #include "m_pd.h"
+
+#define SFXINFO_SIZE 5
+
+typedef struct {
+    unsigned long frames;
+    int samplerate;
+    int channels;
+    int bits;
+    int bigendian;
+} sfxdata;
+
 #include "sfxReader.h"
 
 //#define SFXDEBUG
@@ -46,9 +57,13 @@
 
 #define SCALE (1./(1024. * 1024. * 1024. * 2.))
 
+
+
 #ifdef __cplusplus
 extern "C" {
 #endif
+    
+
     
     int readsfx_get_path(const char *dirname, char *filename, char *path, unsigned int size);
     

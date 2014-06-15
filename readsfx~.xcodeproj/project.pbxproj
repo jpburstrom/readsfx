@@ -12,6 +12,12 @@
 		8F1E04A819408644009E9481 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1E04A719408644009E9481 /* AudioToolbox.framework */; };
 		8F81303B1947307200F9F81E /* sfxReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8F8130391947307200F9F81E /* sfxReader.cpp */; };
 		8F81303C1947307200F9F81E /* sfxReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F81303A1947307200F9F81E /* sfxReader.h */; };
+		8F9A729B194DC6C900AA1AF1 /* xcommon.c in Sources */ = {isa = PBXBuildFile; fileRef = 8FDB0EDC194AE19A0066BC85 /* xcommon.c */; };
+		8F9A729D194DC6C900AA1AF1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1E04A719408644009E9481 /* AudioToolbox.framework */; };
+		8F9A729F194DC6C900AA1AF1 /* m_pd.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F1E04A0194066A6009E9481 /* m_pd.h */; };
+		8F9A72A0194DC6C900AA1AF1 /* sfxReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F81303A1947307200F9F81E /* sfxReader.h */; };
+		8F9A72A5194DC70600AA1AF1 /* sfxinfo.c in Sources */ = {isa = PBXBuildFile; fileRef = 8F9A7286194DB4F100AA1AF1 /* sfxinfo.c */; };
+		8F9A72A6194DC72900AA1AF1 /* sfxReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8F8130391947307200F9F81E /* sfxReader.cpp */; };
 		8FDB0ECE194ADAC80066BC85 /* sfxReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8F8130391947307200F9F81E /* sfxReader.cpp */; };
 		8FDB0ED1194ADAC80066BC85 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F1E04A719408644009E9481 /* AudioToolbox.framework */; };
 		8FDB0ED3194ADAC80066BC85 /* m_pd.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F1E04A0194066A6009E9481 /* m_pd.h */; };
@@ -28,6 +34,8 @@
 		8F1E04A719408644009E9481 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		8F8130391947307200F9F81E /* sfxReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sfxReader.cpp; sourceTree = "<group>"; };
 		8F81303A1947307200F9F81E /* sfxReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sfxReader.h; sourceTree = "<group>"; };
+		8F9A7286194DB4F100AA1AF1 /* sfxinfo.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sfxinfo.c; sourceTree = "<group>"; };
+		8F9A72A4194DC6C900AA1AF1 /* sfxinfo.pd_darwin */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = sfxinfo.pd_darwin; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FDB0ECA194AD48E0066BC85 /* soundfilerx.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = soundfilerx.c; sourceTree = "<group>"; };
 		8FDB0ED9194ADAC80066BC85 /* soundfilerx.pd_darwin */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = soundfilerx.pd_darwin; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FDB0EDB194AE1130066BC85 /* xcommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xcommon.h; sourceTree = "<group>"; };
@@ -40,6 +48,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F1E04A819408644009E9481 /* AudioToolbox.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F9A729C194DC6C900AA1AF1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F9A729D194DC6C900AA1AF1 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,6 +73,7 @@
 		8F1E049019406639009E9481 = {
 			isa = PBXGroup;
 			children = (
+				8F9A7286194DB4F100AA1AF1 /* sfxinfo.c */,
 				8F1E04A4194066F4009E9481 /* readsfx.c */,
 				8FDB0EDC194AE19A0066BC85 /* xcommon.c */,
 				8FDB0ECA194AD48E0066BC85 /* soundfilerx.c */,
@@ -74,6 +91,7 @@
 			children = (
 				8F1E04991940663A009E9481 /* readsfx~.pd_darwin */,
 				8FDB0ED9194ADAC80066BC85 /* soundfilerx.pd_darwin */,
+				8F9A72A4194DC6C900AA1AF1 /* sfxinfo.pd_darwin */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -87,6 +105,15 @@
 			files = (
 				8F1E04A1194066A6009E9481 /* m_pd.h in Headers */,
 				8F81303C1947307200F9F81E /* sfxReader.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F9A729E194DC6C900AA1AF1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F9A729F194DC6C900AA1AF1 /* m_pd.h in Headers */,
+				8F9A72A0194DC6C900AA1AF1 /* sfxReader.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +144,23 @@
 			name = "readsfx~";
 			productName = readsfx;
 			productReference = 8F1E04991940663A009E9481 /* readsfx~.pd_darwin */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+		8F9A7297194DC6C900AA1AF1 /* sfxinfo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8F9A72A1194DC6C900AA1AF1 /* Build configuration list for PBXNativeTarget "sfxinfo" */;
+			buildPhases = (
+				8F9A7298194DC6C900AA1AF1 /* Sources */,
+				8F9A729C194DC6C900AA1AF1 /* Frameworks */,
+				8F9A729E194DC6C900AA1AF1 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = sfxinfo;
+			productName = readsfx;
+			productReference = 8F9A72A4194DC6C900AA1AF1 /* sfxinfo.pd_darwin */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
 		8FDB0ECC194ADAC80066BC85 /* soundfilerx */ = {
@@ -159,6 +203,7 @@
 			targets = (
 				8F1E049819406639009E9481 /* readsfx~ */,
 				8FDB0ECC194ADAC80066BC85 /* soundfilerx */,
+				8F9A7297194DC6C900AA1AF1 /* sfxinfo */,
 			);
 		};
 /* End PBXProject section */
@@ -171,6 +216,16 @@
 				8F81303B1947307200F9F81E /* sfxReader.cpp in Sources */,
 				8F1E04A5194066F4009E9481 /* readsfx.c in Sources */,
 				8FDB0EDD194AE19A0066BC85 /* xcommon.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F9A7298194DC6C900AA1AF1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F9A72A5194DC70600AA1AF1 /* sfxinfo.c in Sources */,
+				8F9A729B194DC6C900AA1AF1 /* xcommon.c in Sources */,
+				8F9A72A6194DC72900AA1AF1 /* sfxReader.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +346,40 @@
 			};
 			name = Release;
 		};
+		8F9A72A2194DC6C900AA1AF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = build;
+				EXECUTABLE_EXTENSION = pd_darwin;
+				EXECUTABLE_PREFIX = "";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"-undefined",
+					dynamic_lookup,
+				);
+				PRODUCT_NAME = sfxinfo;
+			};
+			name = Debug;
+		};
+		8F9A72A3194DC6C900AA1AF1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = build;
+				EXECUTABLE_EXTENSION = pd_darwin;
+				EXECUTABLE_PREFIX = "";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"-undefined",
+					dynamic_lookup,
+				);
+				PRODUCT_NAME = sfxinfo;
+			};
+			name = Release;
+		};
 		8FDB0ED7194ADAC80066BC85 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -342,6 +431,15 @@
 			buildConfigurations = (
 				8F1E049E1940663A009E9481 /* Debug */,
 				8F1E049F1940663A009E9481 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8F9A72A1194DC6C900AA1AF1 /* Build configuration list for PBXNativeTarget "sfxinfo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F9A72A2194DC6C900AA1AF1 /* Debug */,
+				8F9A72A3194DC6C900AA1AF1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

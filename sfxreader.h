@@ -39,7 +39,9 @@ class SfxReader {
 private:
     
     
-    bool is_playing;
+    bool is_open;
+    
+    int openFile(char* dirname, char* filename );
     
     void GetFormatFromInputFile(CFURLRef infileURL, AudioStreamBasicDescription & inputFormat);
     
@@ -48,6 +50,7 @@ public:
     ExtAudioFileRef infile;
     AudioStreamBasicDescription inputFormat, clientFormat;
     
+    SfxReader();
 
     ~SfxReader();
     
@@ -58,8 +61,12 @@ public:
     
     int read(void* buf, int bytes);
     
+    void getInfo(char* dirname, char* filename, sfxdata *data);
+    
     AudioBufferList* AllocateABL(UInt32 channelsPerFrame, UInt32 bytesPerFrame, bool interleaved, UInt32 capacityFrames);
     
+    
+
     
 };
 
@@ -75,7 +82,10 @@ extern "C" {
     
     int sfxreader_read(void* o, void *buf, int bytes);
     
+    
     long sfxreader_get_nframes(void* o);
+    
+    void sfxreader_info(char* dirname, char* filename, sfxdata *data);
     
 #ifdef __cplusplus
 }
