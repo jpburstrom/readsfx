@@ -92,7 +92,8 @@ int SfxReader::open(char* dirname, char* filename, int *p_bytespersamp, int *p_b
     UInt32 size = 0;
     OSStatus err;
     
-    openFile(dirname, filename);
+    if (-1 == openFile(dirname, filename))
+        goto fail;
     
     //24-bit should be enough for our purposes. 32-bit float crashes.
     FillOutASBDForLPCM(clientFormat, sys_getsr(), inputFormat.mChannelsPerFrame, 24, 24, false, false);
