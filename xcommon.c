@@ -14,7 +14,22 @@ static void slashit(char *path)
         strcat(path, "/");
 }
 
+void sfxdata_set(t_atom *output, sfxdata *data)
+{
+    SETFLOAT(output, (t_float)data->ms); \
+    SETFLOAT(output+1, (t_float)data->frames);\
+    SETFLOAT(output+2, (t_float)data->samplerate); \
+    SETFLOAT(output+3, (t_float)data->channels); \
+    SETFLOAT(output+4, (t_float)data->bits); \
+    SETFLOAT(output+5, (t_float)data->bigendian);
+}
 
+
+void sfxdata_reset(sfxdata *data)
+{
+    memset(data, 0, sizeof(*data));
+    
+}
 
 /*
  Take a dirname/filename pair and put the absolute path in filename char

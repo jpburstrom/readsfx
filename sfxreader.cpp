@@ -176,6 +176,8 @@ void SfxReader::getInfo(char* dirname, char* filename, sfxdata *data)
         data->samplerate = inputFormat.mSampleRate;
         data->bits = 8 * inputFormat.mBytesPerFrame / inputFormat.mChannelsPerFrame;
         data->bigendian = (int)(inputFormat.mFormatFlags & kAudioFormatFlagIsBigEndian);
+
+        data->ms = (double)((data->samplerate > 0) ? 1000.0 * ((double)data->frames / (double) data->samplerate): 0.0);
     }
     
     if (do_close)

@@ -106,6 +106,7 @@ typedef struct _readsfx
     t_sample *(x_outvec[MAXSFCHANS]);       /* audio vectors */
     int x_vecsize;                          /* vector size for transfers */
     t_outlet *x_bangout;                    /* bang-on-done outlet */
+   // t_outlet *x_list;                    /* list info outlet */
     int x_state;                            /* opened, running, or idle */
     t_float x_insamplerate;   /* sample rate of input signal if known */
     /* parameters to communicate with subthread */
@@ -135,6 +136,10 @@ typedef struct _readsfx
     pthread_t x_childthread;
     
     //void* x_reader_obj; // Our file reader
+    
+    sfxdata x_data;
+    t_atom x_dataoutput[SFXINFO_SIZE];
+    
     
 } t_readsfx;
 
@@ -269,6 +274,7 @@ noticed. */
 #endif
                 goto lost;
             }
+            sfxreader_info(dirname, filename, &(x->x_data));
             //---------END OPEN SOUNDFILE-------------------
             
             /* check if another request has been made; if so, field it */
@@ -622,13 +628,28 @@ static void readsfx_tick(t_readsfx *x);
     return (w+2);
 }
 
+void readsfx_info(t_readsfx *x)
+{
+    sfxdata_set(x->x_dataoutput, &(x->x_data));
+    if (x->x_data.frames > 0) {
+        outlet_list(x->x_bangout, &s_list, SFXINFO_SIZE, x->x_dataoutput);
+        
+    } else if (x->x_state == STATE_IDLE) {
+            pd_error(x, "readsfx~: Error reading file info. File is closed.");
+    }
+}
+
+
+
  void readsfx_start(t_readsfx *x)
 {
     /* start making output.  If we're in the "startup" state change
      to the "running" state. */
-    if (x->x_state == STATE_STARTUP)
+    if (x->x_state == STATE_STARTUP) {
         x->x_state = STATE_STREAM;
-    else pd_error(x, "readsfx: start requested with no prior 'open'");
+        readsfx_info(x);
+    }
+    else pd_error(x, "readsfx~: start requested with no prior 'open'");
 }
 
  void readsfx_stop(t_readsfx *x)
@@ -637,6 +658,7 @@ static void readsfx_tick(t_readsfx *x);
     pthread_mutex_lock(&x->x_mutex);
     x->x_state = STATE_IDLE;
     x->x_requestcode = REQUEST_CLOSE;
+    sfxdata_reset(&x->x_data);
     sfread_cond_signal(&x->x_requestcondition);
     pthread_mutex_unlock(&x->x_mutex);
 }
@@ -678,6 +700,8 @@ static void readsfx_tick(t_readsfx *x);
     //These should be set when opening the file
     x->x_sfchannels = 1;
     x->x_bytespersample = 2;
+    
+    sfxdata_reset(&x->x_data);
     
     x->x_eof = 0;
     x->x_fileerror = 0;
@@ -744,6 +768,7 @@ void readsfx_tilde_setup(void)
     class_addmethod(readsfx_tilde_class, (t_method)readsfx_open, gensym("open"),
                     A_GIMME, 0);
     class_addmethod(readsfx_tilde_class, (t_method)readsfx_print, gensym("print"), 0);
+    class_addmethod(readsfx_tilde_class, (t_method)readsfx_info, gensym("info"), 0);
 }
 
 

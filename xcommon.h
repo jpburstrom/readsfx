@@ -16,10 +16,11 @@
 #include <string.h>
 #include "m_pd.h"
 
-#define SFXINFO_SIZE 5
+#define SFXINFO_SIZE 6
 
 typedef struct {
     unsigned long frames;
+    double ms;
     int samplerate;
     int channels;
     int bits;
@@ -59,10 +60,13 @@ typedef struct {
 
 
 
+
 #ifdef __cplusplus
 extern "C" {
 #endif
     
+    void sfxdata_reset(sfxdata *data);
+    void sfxdata_set(t_atom *output, sfxdata *data);
 
     
     int readsfx_get_path(const char *dirname, char *filename, char *path, unsigned int size);

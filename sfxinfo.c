@@ -20,29 +20,20 @@ typedef struct _sfxinfo {
     
 } t_sfxinfo;
 
-static void sfxinfo_reset(t_sfxinfo *x)
-{
-    x->x_data = (sfxdata){0, -1, -1, -1, -1};
-}
 
 void sfxinfo_read(t_sfxinfo *x, t_symbol *path)
 {
     char *filename = path->s_name;
     char *dirname = canvas_getdir(x->x_canvas)->s_name;
     
-    sfxinfo_reset(x);
+    sfxdata_reset(&(x->x_data));
     
     sfxreader_info(dirname, filename, &(x->x_data));
     
     if (x->x_data.channels == -1)
         goto err;
-    
-    
-    SETFLOAT(x->x_output, (t_float)x->x_data.frames);
-    SETFLOAT(x->x_output+1, (t_float)x->x_data.samplerate);
-    SETFLOAT(x->x_output+2, (t_float)x->x_data.channels);
-    SETFLOAT(x->x_output+3, (t_float)x->x_data.bits);
-    SETFLOAT(x->x_output+4, (t_float)x->x_data.bigendian);
+
+    sfxdata_set(x->x_output, &(x->x_data));
     
     outlet_list(x->x_list, &s_list, SFXINFO_SIZE, x->x_output);
     
@@ -58,7 +49,7 @@ void *sfxinfo_new(void)
     x->x_canvas = canvas_getcurrent();
     x->x_list = outlet_new(&x->x_obj, &s_list);
     
-    sfxinfo_reset(x);
+    sfxdata_reset(&(x->x_data));
     
     return (void *)x;
 }
